@@ -1,0 +1,28 @@
+﻿{
+  "videosDir": "assets/videos/",
+  "frameHeight": { "mobile": 200, "desktop": 260 },
+  "limit": 4,
+  "items": [
+    {
+      "file": "look1.mp4",
+      "title": "Playful Walk",
+      "note": "Soft daylight mood",
+      "poster": "assets/vids/A2.mp4"
+    },
+    {
+      "file": "dance-steps.mp4",
+      "title": "Dance Steps",
+      "note": "Energetic moves"
+    },
+    {
+      "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4",
+      "title": "Outdoor Breeze",
+      "note": "Nature backdrop"
+    },
+    {
+      "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      "title": "Catalog Spin",
+      "note": "Twirl for lookbook"
+    }
+  ]
+}

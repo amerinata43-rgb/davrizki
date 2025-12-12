@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davina Rizkia - Teen Scrapbook Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #FFF5F7;
+            --color-salmon: #FF9AA2;
+            --color-lime: #D4E157;
+            --color-text: #5D4037;
+            --color-white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--color-bg);
+            background-image: radial-gradient(#FF9AA2 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+            color: var(--color-text);
+        }
+
+        .font-script { font-family: 'Mrs Saint Delafield', cursive; }
+
+        .sticker {
+            background: white;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sticker:hover { transform: scale(1.01); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+
+        .search-nav {
+            background: var(--color-salmon);
+            border-radius: 50px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.12);
+        }
+
+        .hero-sticker {
+            border-radius: 32px;
+            border: 8px solid white;
+            box-shadow: 8px 8px 0px var(--color-lime);
+            overflow: hidden;
+        }
+
+        .bio-card {
+            background: var(--color-salmon);
+            color: white;
+            border-radius: 30px;
+            border: 4px solid white;
+            box-shadow: 6px 6px 0px #FFC1C8;
+        }
+
+        .pill-tag {
+            background: white;
+            color: var(--color-salmon);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: var(--color-salmon);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        .media-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .media-frame img { border-radius: 12px; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        @keyframes popIn { 0% { transform: scale(0.92); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .animate-pop { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            border-radius: 999px;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .badge-salmon { background: var(--color-salmon); color: white; }
+        .badge-lime { background: var(--color-lime); color: #3B421A; }
+        .badge-brown { background: #E0C3B2; color: #5D4037; }
+
+        .cta-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid white;
+            border-radius: 26px;
+            box-shadow: 6px 6px 0px #FFC1C8;
+        }
+
+        .mobile-profile-card {
+            background: white;
+            border: 2px solid #FFE0E6;
+            border-radius: 20px;
+            box-shadow: 4px 6px 0px #FFC1C8;
+            padding: 14px;
+        }
+
+        .info-chip {
+            background: #FFF0F2;
+            color: #C45A6C;
+            border: 1px solid #FFD6DE;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 2px 3px 0px #FFE6EC;
+        }
+
+        .info-chip.light {
+            background: #F6FBEA;
+            color: #566121;
+            border: 1px solid #DCE9B6;
+            box-shadow: 2px 3px 0px #E8F3C8;
+        }
+
+        .hero-tagline {
+            font-weight: 600;
+            color: #80574C;
+        }
+
+        .stat-ribbon {
+            background: linear-gradient(135deg, #FFBAC5, #FFDDE3);
+            color: #5D4037;
+            border-radius: 14px;
+            padding: 10px 12px;
+            border: 2px solid white;
+            box-shadow: 3px 4px 0px #FFC1C8;
+        }
+
+        /* Recent video cards */
+        .video-card {
+            background: white;
+            border: 2px solid #FFE0E6;
+            border-radius: 18px;
+            box-shadow: 4px 6px 0px #FFC1C8;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .video-shell {
+            position: relative;
+            width: 100%;
+            background: #111;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .video-shell video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .video-meta {
+            padding: 0 6px 10px 6px;
+        }
+
+        /* Masonry (Pinterest-like) gallery */
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 1rem;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            display: block;
+            width: 100%;
+        }
+        .masonry-item .sticker { width: 100%; }
+
+        @media (min-width: 768px) {
+            .masonry-grid { column-count: 3; column-gap: 1.25rem; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 4; column-gap: 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .search-nav-container { position: sticky; top: 10px; z-index: 100; padding: 0 1rem; }
+            .hero-sticker { border-width: 6px; }
+            .hero-sticker img { object-position: top; }
+            .pill-tag { font-size: 0.75rem; padding: 4px 10px; }
+            h1 { font-size: 56px; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start py-0 md:py-8">
+
+    <!-- Decorative Doodles (Background) -->
+    <div class="fixed top-20 left-6 text-[#FFD1DC] text-6xl opacity-50 rotate-[-15deg] hidden md:block z-0"><i class="fa-solid fa-heart"></i></div>
+    <div class="fixed bottom-20 right-6 text-[#F0F4C3] text-8xl opacity-50 rotate-[15deg] hidden md:block z-0"><i class="fa-solid fa-star"></i></div>
+
+    <!-- Navbar -->
+    <div class="w-full max-w-6xl search-nav-container mb-4 md:mb-0 mt-4 md:mt-0 relative z-50">
+        <div class="search-nav flex justify-between items-center p-2 pr-4 md:p-3 md:pr-6 max-w-2xl mx-auto transform hover:scale-[1.01] transition duration-300">
+            <!-- Mock URL/Search -->
+            <div class="bg-white/90 rounded-full px-4 py-2 flex items-center gap-3 w-full mr-4 text-xs md:text-sm text-gray-500 shadow-inner">
+                <i class="fa-solid fa-globe text-[#FF9AA2]"></i>
+                <span class="font-bold text-[#FF9AA2]">www.davinarizkia.com/portfolio</span>
+            </div>
+            <!-- Menu Items -->
+            <div class="hidden md:flex gap-4 text-white font-bold text-sm">
+                <a href="#home" class="hover:text-[#F0F4C3] transition">About</a>
+                <a href="#gallery" class="hover:text-[#F0F4C3] transition">Gallery</a>
+                <a href="mailto:hello@davinarizkia.com" class="hover:text-[#F0F4C3] transition">Contact</a>
+            </div>
+            <div class="md:hidden text-white text-lg">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main class="w-full max-w-6xl flex flex-col px-4 md:px-0 relative z-10 space-y-16 md:space-y-20">
+
+        <!-- SECTION 1: HERO / INTRO -->
+        <section id="home" class="relative w-full">
+            <!-- Mobile quick profile -->
+            <div class="md:hidden space-y-3 mb-4">
+                <div class="mobile-profile-card animate-pop">
+                    <div class="flex items-center gap-3">
+                        <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md">
+                            <img src="assets/img/pfp.png" alt="Davina headshot" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-[10px] uppercase tracking-wide text-[#FF9AA2] font-bold">Kids model</p>
+                            <p class="text-xl font-bold text-[#5D4037] leading-tight">Davina Rizkia</p>
+                            <p class="text-xs hero-tagline">Bright looks for catalogues, fashion, and dance stories.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 items-end">
+                            <span class="info-chip">Bandung</span>
+                            <span class="info-chip light">Age 14 • 160 cm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <a href="#gallery" class="flex-1 text-center bg-[#D4E157] text-[#3B421A] font-bold px-4 py-3 rounded-full border-2 border-white shadow-[4px_4px_0px_#AFB42B] hover:translate-y-[2px] transition text-sm">Lihat Galeri</a>
+                    <a href="mailto:hello@davinarizkia.com" class="flex-1 text-center bg-[#FF9AA2] text-white font-bold px-4 py-3 rounded-full border-2 border-white shadow-[4px_4px_0px_#FFC1C8] hover:translate-y-[2px] transition text-sm">Book</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+                <!-- Left column: hero, stats, small gallery -->
+                <div class="space-y-6">
+                    <div class="hero-sticker relative w-full aspect-[3/4] bg-white animate-pop group">
+                        <img src="assets/img/davinaMenu.png" alt="Davina Rizkia" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[#FF9AA2] px-4 py-2 rounded-full font-bold text-xs shadow-md rotate-[5deg] border-2 border-[#FF9AA2]">
+                            <i class="fa-solid fa-sparkles text-[#D4E157]"></i> Teen Model
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 animate-pop delay-100">
+                        <div class="bg-white border-2 border-[#FF9AA2] w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-[4px_4px_0px_#FF9AA2] transform rotate-[-3deg] hover:rotate-0 transition hover:scale-110 cursor-pointer">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase">Height</span>
+                            <span class="text-2xl font-bold text-[#5D4037]">160</span>
+                        </div>
+                        <div class="bg-white border-2 border-[#D4E157] w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-[4px_4px_0px_#D4E157] transform rotate-[3deg] hover:rotate-0 transition hover:scale-110 cursor-pointer">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase">Weight</span>
+                            <span class="text-2xl font-bold text-[#5D4037]">50</span>
+                        </div>
+                        <div class="bg-white border-2 border-[#FF9AA2] w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-[4px_4px_0px_#FF9AA2] transform rotate-[-2deg] hover:rotate-0 transition hover:scale-110 cursor-pointer">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase">Age</span>
+                            <span class="text-2xl font-bold text-[#5D4037]">14</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-ribbon animate-pop delay-150 flex items-center justify-between">
+                        <div class="flex items-center gap-2 font-bold text-sm">
+                            <i class="fa-solid fa-heart text-[#FF6F91]"></i>
+                            Available for kids fashion, catalogs, and cheerful campaigns.
+                        </div>
+                        <span class="hidden md:inline-flex bg-white text-[#5D4037] text-xs font-bold px-3 py-1 rounded-full border border-[#FFC1C8] shadow-sm">Response &lt; 24h</span>
+                    </div>
+
+                    <div class="sticker rounded-3xl p-5 animate-pop delay-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="relative">
+                                <div class="absolute -top-3 left-1/2 lg:left-10 -translate-x-1/2 lg:-translate-x-0 w-24 h-6 bg-[#D4E157] opacity-60 rotate-[-2deg] -z-10 rounded-sm"></div>
+                                <h3 class="font-bold text-[#5D4037] text-lg">Recent Snaps</h3>
+                                <p class="text-xs text-gray-500">Autoplay videos from <code>assets/data/recent.json</code></p>
+                            </div>
+                            <a class="hidden md:inline-flex text-xs font-bold text-[#FF9AA2] underline decoration-2" href="assets/data/recent.json" target="_blank" rel="noreferrer">Edit JSON</a>
+                        </div>
+                        <div id="recent-videos" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+                        <p id="recent-note" class="text-[11px] text-gray-400 mt-2">Loading recent videos…</p>
+                    </div>
+                </div>
+
+                <!-- Right column: heading, bio, CTA -->
+                <div class="space-y-6 lg:pt-4">
+                    <div class="inline-block relative animate-pop">
+                        <h1 class="font-script text-[64px] md:text-[110px] text-[#5D4037] leading-none drop-shadow-sm">Davina <span class="text-[#FF9AA2]">Rizkia</span></h1>
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-[#D4E157] rounded-full -z-10 flex items-center justify-center text-white font-bold text-xs shadow-md animate-float">
+                            Est.11
+                        </div>
+                        <p class="mt-2 text-sm md:text-base text-gray-600 max-w-xl">Crafting playful looks, dance energy, and bright campaign vibes. Scroll to see the snaps and swap categories anytime.</p>
+                        <div class="hidden md:flex flex-wrap gap-2 mt-3">
+                            <span class="info-chip"><i class="fa-solid fa-sparkles"></i>Kids / Teen Model</span>
+                            <span class="info-chip light"><i class="fa-solid fa-location-dot"></i>Bandung</span>
+                            <span class="info-chip"><i class="fa-solid fa-video"></i>Video & Still</span>
+                            <span class="info-chip light"><i class="fa-solid fa-user-group"></i>Commercial & Catalog</span>
+                        </div>
+                    </div>
+
+                    <div class="bio-card w-full p-6 md:p-8 animate-pop delay-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-white text-[#FF9AA2] rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider shadow-sm">Bio / Profile</div>
+                            <i class="fa-solid fa-heart text-white/50 text-xl"></i>
+                        </div>
+                        <p class="text-sm leading-relaxed font-medium mb-6">
+                            Davina, or better known as <span class="bg-white/20 px-1 rounded">Vina</span>, is a 14-year-old creative soul from Jakarta. She loves expressing herself through fashion & dance. When she's not in front of a camera, she's usually editing vlogs or styling outfits!
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill-tag">#StreetStyle</span>
+                            <span class="pill-tag">#Dance</span>
+                            <span class="pill-tag">#Vlog</span>
+                            <span class="pill-tag bg-[#D4E157] !text-white">Libra | TZ</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-card w-full p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 animate-pop delay-200">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-[#FF9AA2] text-white rounded-full flex items-center justify-center border-2 border-white shadow-md">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-[#5D4037]">Need a fresh look?</p>
+                                <p class="text-xs text-gray-600">Tap the filters or drop new sections in the JSON to refresh instantly.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="#gallery" class="bg-[#D4E157] text-[#3B421A] font-bold px-4 py-2 rounded-full border-2 border-white shadow-[4px_4px_0px_#AFB42B] hover:translate-y-[2px] transition text-sm">View gallery</a>
+                            <a href="mailto:hello@davinarizkia.com" class="bg-[#FF9AA2] text-white font-bold px-4 py-2 rounded-full border-2 border-white shadow-[4px_4px_0px_#FFC1C8] hover:translate-y-[2px] transition text-sm">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DYNAMIC GALLERY -->
+        <section id="gallery" class="relative w-full py-10 md:py-16 mt-4 border-t-4 border-dashed border-[#FF9AA2]/30">
+            <div class="text-center mb-10 md:mb-12">
+                <div class="inline-block relative">
+                    <h2 class="font-script text-5xl md:text-7xl text-[#5D4037] relative z-10">Lookbook & Moments</h2>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[110%] h-10 bg-[#D4E157] opacity-30 -rotate-2 rounded-full -z-0"></div>
+                </div>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mt-4">Update <code>assets/data/gallery.json</code> to add sections like Popular or new shoots. Filters and cards render automatically.</p>
+            </div>
+
+            <!-- Filter Pills (rendered by JS) -->
+            <div id="filter-container" class="flex flex-wrap justify-center gap-3 px-2"></div>
+
+            <!-- Masonry Grid (rendered by JS) -->
+            <div id="gallery-grid" class="masonry-grid mt-6"></div>
+
+            <div class="text-center mt-10 space-y-1">
+                <p class="text-xs text-gray-500">Tip: drop new photos in <code>assets/img/</code> and point to them from the JSON.</p>
+                <p id="data-source-note" class="text-[11px] text-gray-400">Loading gallery data...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Action Button (Mobile) -->
+    <div class="md:hidden fixed bottom-6 right-6 z-50">
+        <button class="bg-[#D4E157] text-white w-14 h-14 rounded-full shadow-[4px_4px_0px_#AFB42B] flex items-center justify-center text-xl border-2 border-white active:translate-y-1 active:shadow-none transition">
+            <i class="fa-solid fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Gallery Rendering Script -->
+    <script>
+        const layoutClasses = {
+            feature: 'gallery-item masonry-item sticker p-3 relative group overflow-hidden',
+            landscape: 'gallery-item masonry-item sticker p-3 relative group overflow-hidden',
+            portrait: 'gallery-item masonry-item sticker p-3 relative group overflow-hidden',
+            standard: 'gallery-item masonry-item sticker p-3 relative group overflow-hidden'
+        };
+
+        const fallbackContent = {
+            filters: [
+                { id: 'commercial', label: 'Commercial' },
+                { id: 'ootd', label: 'OOTD' },
+                { id: 'editorial', label: 'Editorial' },
+                { id: 'popular', label: 'Popular' }
+            ],
+            items: [
+                
+            ]
+        };
+
+        const state = { activeCategory: 'all' };
+
+        const badgeToneClass = (tone = 'salmon') => {
+            const map = { salmon: 'badge-salmon', lime: 'badge-lime', brown: 'badge-brown' };
+            return map[tone] || map.salmon;
+        };
+
+        function createFilterButton(category, label) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.dataset.category = category;
+            btn.dataset.filterBtn = true;
+            btn.className = 'filter-btn pill-tag cursor-pointer border-2 border-transparent hover:border-[#FF9AA2] text-sm py-2 px-6 flex items-center gap-2';
+            btn.textContent = label;
+            btn.addEventListener('click', () => setActiveFilter(category));
+            return btn;
+        }
+
+        function renderFilters(filters) {
+            const container = document.getElementById('filter-container');
+            container.innerHTML = '';
+            container.appendChild(createFilterButton('all', 'All Snaps'));
+            filters.forEach(filter => container.appendChild(createFilterButton(filter.id, filter.label)));
+        }
+
+        function renderGallery(items) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+            items.forEach(item => grid.appendChild(buildCard(item)));
+        }
+
+        function buildCard(item) {
+            const card = document.createElement('article');
+            card.className = `${layoutClasses[item.layout] || layoutClasses.standard} bg-white transition duration-500 hover:-translate-y-1`;
+            card.dataset.category = item.category;
+            card.dataset.galleryItem = true;
+            card.style.animation = 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+
+            const frame = document.createElement('div');
+            frame.className = 'relative w-full rounded-xl overflow-hidden bg-white';
+
+            const img = document.createElement('img');
+            img.src = item.image;
+            img.alt = item.title;
+            img.loading = 'lazy';
+            img.className = 'w-full h-auto block transition duration-700 group-hover:scale-[1.02]';
+            frame.appendChild(img);
+
+            if (item.badge) {
+                const badge = document.createElement('div');
+                badge.className = `badge ${badgeToneClass(item.badge.tone)} absolute top-3 left-3`;
+                badge.innerHTML = `<i class="fa-solid fa-sparkles"></i> ${item.badge.text}`;
+                frame.appendChild(badge);
+            }
+
+            const overlay = document.createElement('div');
+            overlay.className = 'absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end';
+            overlay.innerHTML = `
+                <div class="p-4 text-white">
+                    <p class="font-bold text-lg leading-tight">${item.title}</p>
+                    ${item.tagline ? `<p class="text-xs text-white/80 mt-1">${item.tagline}</p>` : ''}
+                </div>
+            `;
+            frame.appendChild(overlay);
+
+            card.appendChild(frame);
+
+            if (item.note) {
+                const note = document.createElement('p');
+                note.className = 'text-center font-script text-xl mt-2 text-gray-500';
+                note.textContent = item.note;
+                card.appendChild(note);
+            }
+
+            return card;
+        }
+
+        function setActiveFilter(category) {
+            state.activeCategory = category;
+            document.querySelectorAll('[data-filter-btn]').forEach(btn => {
+                const isActive = btn.dataset.category === category;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', isActive);
+            });
+
+            document.querySelectorAll('[data-gallery-item]').forEach(card => {
+                const match = category === 'all' || card.dataset.category === category;
+                card.classList.toggle('hidden', !match);
+                card.style.animation = match ? 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards' : 'none';
+            });
+        }
+
+        function hydrate(content) {
+            renderFilters(content.filters || []);
+            renderGallery(content.items || []);
+            setActiveFilter(state.activeCategory);
+        }
+
+        const DATA_URL = 'assets/data/gallery.json';
+        const RECENT_DATA_URL = 'assets/data/recent.json';
+
+        function setDataNote(text) {
+            const note = document.getElementById('data-source-note');
+            if (note) note.textContent = text;
+        }
+        function setRecentNote(text) {
+            const note = document.getElementById('recent-note');
+            if (note) note.textContent = text;
+        }
+
+        async function loadData() {
+            try {
+                const res = await fetch(DATA_URL, { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load gallery data');
+                const data = await res.json();
+                hydrate(data);
+                setDataNote('Loaded from assets/data/gallery.json');
+            } catch (err) {
+                if (location.protocol === 'file:') {
+                    console.warn('Browser blocked local JSON fetch on file://. Serve the folder locally (e.g., python -m http.server 8000) to read assets/data/gallery.json.', err);
+                    setDataNote('Using built-in data. Run a local server to read assets/data/gallery.json');
+                } else {
+                    console.warn('Using fallback data', err);
+                    setDataNote('Using built-in data (could not read assets/data/gallery.json).');
+                }
+                hydrate(fallbackContent);
+            }
+        }
+
+        // Recent video (autoplay) data
+        const recentFallback = {
+            videosDir: '',
+            frameHeight: { mobile: 200, desktop: 260 },
+            limit: 4,
+            items: [
+                {
+                    src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+                    title: 'Playful Walk',
+                    note: 'Soft daylight mood'
+                },
+                {
+                    src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/beer.mp4',
+                    title: 'Dance Steps',
+                    note: 'Energetic moves'
+                },
+                {
+                    src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+                    title: 'Outdoor Breeze',
+                    note: 'Nature backdrop'
+                },
+                {
+                    src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+                    title: 'Catalog Spin',
+                    note: 'Twirl for lookbook'
+                }
+            ]
+        };
+
+        function resolveVideoSrc(item, baseDir) {
+            if (item.src) return item.src;
+            if (item.file && baseDir) return `${baseDir}${item.file}`;
+            return item.file || '';
+        }
+
+        function getFrameHeight(frameHeight) {
+            const mobileH = frameHeight?.mobile ?? 200;
+            const desktopH = frameHeight?.desktop ?? 260;
+            return window.innerWidth < 768 ? mobileH : desktopH;
+        }
+
+        function buildRecentCard(item, frameHeight, baseDir) {
+            const card = document.createElement('div');
+            card.className = 'video-card';
+
+            const shell = document.createElement('div');
+            shell.className = 'video-shell';
+            shell.style.height = `${getFrameHeight(frameHeight)}px`;
+
+            const video = document.createElement('video');
+            const src = resolveVideoSrc(item, baseDir);
+            video.playsInline = true;
+            video.muted = true;
+            video.autoplay = true;
+            video.loop = true;
+            video.preload = 'metadata';
+            video.controls = item.controls !== false;
+            video.controlsList = 'nodownload noremoteplayback';
+            video.disablePictureInPicture = true;
+            video.src = src;
+            if (item.poster) video.poster = item.poster;
+
+            const source = document.createElement('source');
+            source.src = src;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+
+            video.addEventListener('loadeddata', () => {
+                const playPromise = video.play();
+                if (playPromise?.catch) playPromise.catch(() => {});
+            });
+
+            shell.appendChild(video);
+
+            const meta = document.createElement('div');
+            meta.className = 'video-meta';
+            meta.innerHTML = `
+                <p class="text-sm font-bold text-[#5D4037] leading-tight">${item.title || 'Recent clip'}</p>
+                ${item.note ? `<p class="text-xs text-gray-500">${item.note}</p>` : ''}
+            `;
+
+            card.appendChild(shell);
+            card.appendChild(meta);
+            return card;
+        }
+
+        let recentCache = null;
+
+        function renderRecent(data) {
+            const wrapper = document.getElementById('recent-videos');
+            if (!wrapper) return;
+            recentCache = data;
+            wrapper.innerHTML = '';
+            const items = data.items || [];
+            const limit = data.limit || items.length;
+            const frameHeight = data.frameHeight || { mobile: 200, desktop: 260 };
+            const baseDir = data.videosDir || '';
+
+            items.slice(0, limit).forEach(item => {
+                wrapper.appendChild(buildRecentCard(item, frameHeight, baseDir));
+            });
+        }
+
+        async function loadRecent() {
+            try {
+                const res = await fetch(RECENT_DATA_URL, { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load recent videos');
+                const data = await res.json();
+                renderRecent(data);
+                setRecentNote('Loaded from assets/data/recent.json');
+            } catch (err) {
+                if (location.protocol === 'file:') {
+                    console.warn('Browser blocked local JSON fetch on file://. Serve the folder locally to read assets/data/recent.json.', err);
+                    setRecentNote('Using built-in sample videos. Run a local server to read assets/data/recent.json');
+                } else {
+                    console.warn('Using fallback recent videos', err);
+                    setRecentNote('Using built-in sample videos (could not read assets/data/recent.json).');
+                }
+                renderRecent(recentFallback);
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            if (recentCache) renderRecent(recentCache);
+        });
+
+        loadData();
+        loadRecent();
+    </script>
+
+</body>
+</html>

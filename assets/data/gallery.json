@@ -1,0 +1,47 @@
+﻿{
+  "filters": [
+    { "id": "commercial", "label": "Commercial" },
+    { "id": "ootd", "label": "OOTD" },
+    { "id": "editorial", "label": "Editorial" },
+    { "id": "popular", "label": "Popular" }
+  ],
+  "items": [
+    {
+      "id": "disney-campaign",
+      "title": "𝔻𝕒𝕧𝕚𝕟𝕒 ℝ𝕚𝕫𝕜𝕚𝕒 -𝟙𝟜 𝕥𝕙- 𝔹𝕒𝕟𝕕𝕦𝕟𝕘",
+      "tagline": "#DavinaRizkia",
+      "category": "commercial",
+      "image": "assets/img/hijab(1).webp",
+      "badge": { "text": "New Update", "tone": "salmon" },
+      "layout": "feature"
+    },
+	{
+      "id": "disney-campaign",
+      "title": "𝔻𝕒𝕧𝕚𝕟𝕒 ℝ𝕚𝕫𝕜𝕚𝕒 -𝟙𝟜 𝕥𝕙- 𝔹𝕒𝕟𝕕𝕦𝕟𝕘",
+      "tagline": "#DavinaRizkia",
+      "category": "commercial",
+      "image": "assets/img/hijab(2).webp",
+
+      "layout": "feature"
+    },
+	{
+      "id": "disney-campaign",
+      "title": "𝔻𝕒𝕧𝕚𝕟𝕒 ℝ𝕚𝕫𝕜𝕚𝕒 -𝟙𝟜 𝕥𝕙- 𝔹𝕒𝕟𝕕𝕦𝕟𝕘",
+      "tagline": "#DavinaRizkia",
+      "category": "commercial",
+      "image": "assets/img/hijab(3).webp",
+
+      "layout": "feature"
+    },
+	{
+      "id": "disney-campaign",
+      "title": "𝔻𝕒𝕧𝕚𝕟𝕒 ℝ𝕚𝕫𝕜𝕚𝕒 -𝟙𝟜 𝕥𝕙- 𝔹𝕒𝕟𝕕𝕦𝕟𝕘",
+      "tagline": "#DavinaRizkia",
+      "category": "commercial",
+      "image": "assets/img/hijab(4).webp",
+
+      "layout": "feature"
+    }
+    
+  ]
+}
