@@ -7,7 +7,7 @@
       "file": "look1.mp4",
       "title": "Playful Walk",
       "note": "Soft daylight mood",
-      "poster": ".../assets/vids/A2.mp4"
+      "poster": "assets/vids/A2.mp4"
     },
     {
       "file": "dance-steps.mp4",
@@ -26,4 +26,5 @@
     }
   ]
 }
+
 
