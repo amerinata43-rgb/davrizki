@@ -1,17 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Davina Rizkia - Teen Scrapbook Portfolio</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,19 +216,15 @@
 </head>
 <body class="min-h-screen flex flex-col items-center justify-start py-0 md:py-8">
 
-    <!-- Decorative Doodles (Background) -->
     <div class="fixed top-20 left-6 text-[#FFD1DC] text-6xl opacity-50 rotate-[-15deg] hidden md:block z-0"><i class="fa-solid fa-heart"></i></div>
     <div class="fixed bottom-20 right-6 text-[#F0F4C3] text-8xl opacity-50 rotate-[15deg] hidden md:block z-0"><i class="fa-solid fa-star"></i></div>
 
-    <!-- Navbar -->
     <div class="w-full max-w-6xl search-nav-container mb-4 md:mb-0 mt-4 md:mt-0 relative z-50">
         <div class="search-nav flex justify-between items-center p-2 pr-4 md:p-3 md:pr-6 max-w-2xl mx-auto transform hover:scale-[1.01] transition duration-300">
-            <!-- Mock URL/Search -->
             <div class="bg-white/90 rounded-full px-4 py-2 flex items-center gap-3 w-full mr-4 text-xs md:text-sm text-gray-500 shadow-inner">
                 <i class="fa-solid fa-globe text-[#FF9AA2]"></i>
                 <span class="font-bold text-[#FF9AA2]">www.davinarizkia.com/portfolio</span>
             </div>
-            <!-- Menu Items -->
             <div class="hidden md:flex gap-4 text-white font-bold text-sm">
                 <a href="#home" class="hover:text-[#F0F4C3] transition">About</a>
                 <a href="#gallery" class="hover:text-[#F0F4C3] transition">Gallery</a>
@@ -245,12 +236,9 @@
         </div>
     </div>
 
-    <!-- Main Content Wrapper -->
     <main class="w-full max-w-6xl flex flex-col px-4 md:px-0 relative z-10 space-y-16 md:space-y-20">
 
-        <!-- SECTION 1: HERO / INTRO -->
         <section id="home" class="relative w-full">
-            <!-- Mobile quick profile -->
             <div class="md:hidden space-y-3 mb-4">
                 <div class="mobile-profile-card animate-pop">
                     <div class="flex items-center gap-3">
@@ -275,7 +263,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
-                <!-- Left column: hero, stats, small gallery -->
                 <div class="space-y-6">
                     <div class="hero-sticker relative w-full aspect-[3/4] bg-white animate-pop group">
                         <img src="assets/img/davinaMenu.png" alt="Davina Rizkia" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
@@ -312,16 +299,15 @@
                             <div class="relative">
                                 <div class="absolute -top-3 left-1/2 lg:left-10 -translate-x-1/2 lg:-translate-x-0 w-24 h-6 bg-[#D4E157] opacity-60 rotate-[-2deg] -z-10 rounded-sm"></div>
                                 <h3 class="font-bold text-[#5D4037] text-lg">Recent Snaps</h3>
-                                <p class="text-xs text-gray-500">Autoplay videos from <code>assets/data/recent.json</code></p>
+                                <p class="text-xs text-gray-500">Autoplay video highlights.</p>
                             </div>
-                            <a class="hidden md:inline-flex text-xs font-bold text-[#FF9AA2] underline decoration-2" href="assets/data/recent.json" target="_blank" rel="noreferrer">Edit JSON</a>
+                            <div class="hidden md:inline-flex text-xs font-bold text-[#FF9AA2] opacity-60">Fresh clips</div>
                         </div>
                         <div id="recent-videos" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
                         <p id="recent-note" class="text-[11px] text-gray-400 mt-2">Loading recent videos…</p>
                     </div>
                 </div>
 
-                <!-- Right column: heading, bio, CTA -->
                 <div class="space-y-6 lg:pt-4">
                     <div class="inline-block relative animate-pop">
                         <h1 class="font-script text-[64px] md:text-[110px] text-[#5D4037] leading-none drop-shadow-sm">Davina <span class="text-[#FF9AA2]">Rizkia</span></h1>
@@ -372,38 +358,37 @@
             </div>
         </section>
 
-        <!-- SECTION 2: DYNAMIC GALLERY -->
         <section id="gallery" class="relative w-full py-10 md:py-16 mt-4 border-t-4 border-dashed border-[#FF9AA2]/30">
             <div class="text-center mb-10 md:mb-12">
                 <div class="inline-block relative">
                     <h2 class="font-script text-5xl md:text-7xl text-[#5D4037] relative z-10">Lookbook & Moments</h2>
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[110%] h-10 bg-[#D4E157] opacity-30 -rotate-2 rounded-full -z-0"></div>
                 </div>
-                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mt-4">Update <code>assets/data/gallery.json</code> to add sections like Popular or new shoots. Filters and cards render automatically.</p>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mt-4">Bright picks from shoots and campaigns.</p>
             </div>
 
-            <!-- Filter Pills (rendered by JS) -->
             <div id="filter-container" class="flex flex-wrap justify-center gap-3 px-2"></div>
 
-            <!-- Masonry Grid (rendered by JS) -->
             <div id="gallery-grid" class="masonry-grid mt-6"></div>
 
             <div class="text-center mt-10 space-y-1">
-                <p class="text-xs text-gray-500">Tip: drop new photos in <code>assets/img/</code> and point to them from the JSON.</p>
+                <p class="text-xs text-gray-500">New drops arrive often.</p>
                 <p id="data-source-note" class="text-[11px] text-gray-400">Loading gallery data...</p>
             </div>
         </section>
 
     </main>
 
-    <!-- Floating Action Button (Mobile) -->
+    <footer class="w-full text-center py-6 text-xs text-gray-500">
+        © 2026 Hasunoai
+    </footer>
+
     <div class="md:hidden fixed bottom-6 right-6 z-50">
         <button class="bg-[#D4E157] text-white w-14 h-14 rounded-full shadow-[4px_4px_0px_#AFB42B] flex items-center justify-center text-xl border-2 border-white active:translate-y-1 active:shadow-none transition">
             <i class="fa-solid fa-comment-dots"></i>
         </button>
     </div>
 
-    <!-- Gallery Rendering Script -->
     <script>
         const layoutClasses = {
             feature: 'gallery-item masonry-item sticker p-3 relative group overflow-hidden',
